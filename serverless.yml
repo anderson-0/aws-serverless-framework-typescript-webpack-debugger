@@ -1,0 +1,32 @@
+service: resource-management-app
+
+frameworkVersion: "3"
+
+useDotenv: true
+
+plugins:
+  # - serverless-plugin-typescript
+  - serverless-offline
+  - serverless-webpack
+
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
+    packager: yarn
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  region: us-east-1
+  versionFunctions: false
+functions:
+  listServers:
+    handler: src/servers/list.handler
+    events:
+      - http:
+          path: servers
+          method: get
+          cors: true
+package:
+  individually: true

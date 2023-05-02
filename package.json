@@ -1,0 +1,38 @@
+{
+  "name": "aws-serverless-framework-typescript-webpack-debugger",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/anderson-0/aws-serverless-framework-typescript-webpack-debugger.git",
+  "author": "Anderson da Silva <anderson.consultant.it@outlook.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.20.0"
+  },
+  "scripts": {
+    "dev": "serverless offline ",
+    "debug": "set SLS_DEBUG=* && node --inspect node_modules/serverless/bin/serverless offline -s dev",
+    "build": "tsc",
+    "start": "npm run build && sls offline",
+    "deploy": "npm run build && serverless deploy",
+    "destroy": "serverless remove"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "aws-lambda": "^1.0.7",
+    "aws-sdk": "^2.1370.0",
+    "serverless": "^3.30.1",
+    "serverless-offline": "^12.0.4",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@serverless/typescript": "^3.29.0",
+    "@types/aws-lambda": "^8.10.114",
+    "@types/uuid": "^9.0.1",
+    "copy-webpack-plugin": "^11.0.0",
+    "serverless-webpack": "^5.11.0",
+    "ts-loader": "^9.4.2",
+    "typescript": "^5.0.4",
+    "webpack": "^5.81.0",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
